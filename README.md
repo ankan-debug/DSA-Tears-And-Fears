@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚔️ Big-O-My-God ⚔️
+# ⚔️ DSA-Tears-And-Fears ⚔️
 
 **A digital graveyard of segmentation faults and pointers pointing to nowhere.**
 
