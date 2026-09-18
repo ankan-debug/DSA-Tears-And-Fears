@@ -58,8 +58,8 @@ $ ./dsa_lab --status
 | 23 | 07.09.26 | Merge sort | Sorting | [23_merge_sort.c](07-Sorting/23_merge_sort.c) |
 | 24 | 07.09.26 | Insertion sort and binary search | Searching / Sorting | [24_insertion_sort_then_binary_search.c](05-Searching/24_insertion_sort_then_binary_search.c) |
 | 25 | 07.09.26 | Quick sort | Sorting | [25_quick_sort.c](07-Sorting/25_quick_sort.c) |
-| 26 | — | Stack | Stack | [26_stack.c](08-Stack/26_stack.c) |
-| 27 | — | Queue | Queue | [27_queue.c](09-Queue/27_queue.c) |
+| 26 | 14.09.26 | Stack | Stack | [26_stack.c](08-Stack/26_stack.c) |
+| 27 | 14.09.26 | Queue | Queue | [27_queue.c](09-Queue/27_queue.c) |
 
 ## 📊 Topic-wise breakdown
 
