@@ -5,7 +5,7 @@
 **Proof that I survived my DSA lab without throwing my laptop out the window.**
 
 <img src="https://img.shields.io/badge/Language-C-blue?style=for-the-badge&logo=c" alt="C">
-<img src="https://img.shields.io/badge/Programs-25-informational?style=for-the-badge" alt="25 programs">
+<img src="https://img.shields.io/badge/Programs-27-informational?style=for-the-badge" alt="25 programs">
 <img src="https://img.shields.io/badge/License-Unlicense-lightgrey?style=for-the-badge" alt="Unlicense">
 <img src="https://img.shields.io/badge/Status-Barely%20Surviving-success?style=for-the-badge" alt="Status">
 <img src="https://img.shields.io/badge/Brain%20Cells%20Left-1-red?style=for-the-badge" alt="Brain cells">
@@ -17,7 +17,7 @@
 
 ```text
 $ ./dsa_lab --status
-[ OK ] Loading 25 lab programs
+[ OK ] Loading 27 lab programs
 [ OK ] C source tree mounted
 [ OK ] Sorting algorithms detected
 [ OK ] Searching algorithms detected
@@ -29,7 +29,7 @@ $ ./dsa_lab --status
 
 ## 📑 PROGRAM INDEX
 
-**Total: 25 programs**
+**Total: 27 programs**
 
 | # | Date | Program Name | Topic | Source |
 |---:|---|---|---|---|
@@ -58,6 +58,8 @@ $ ./dsa_lab --status
 | 23 | 07.09.26 | Merge sort | Sorting | [23_merge_sort.c](07-Sorting/23_merge_sort.c) |
 | 24 | 07.09.26 | Insertion sort and binary search | Searching / Sorting | [24_insertion_sort_then_binary_search.c](05-Searching/24_insertion_sort_then_binary_search.c) |
 | 25 | 07.09.26 | Quick sort | Sorting | [25_quick_sort.c](07-Sorting/25_quick_sort.c) |
+| 26 | — | Stack | Stack | [26_stack.c](08-Stack/26_stack.c) |
+| 27 | — | Queue | Queue | [27_queue.c](09-Queue/27_queue.c) |
 
 ## 📊 Topic-wise breakdown
 
@@ -70,6 +72,8 @@ $ ./dsa_lab --status
 | Searching | 4 |
 | Memory Addressing | 2 |
 | Sorting | 10 |
+| Stack | 1 |
+| Queue | 1 |
 
 ## 🗺️ Repo map
 
@@ -99,7 +103,7 @@ DSA-Tears-And-Fears/
 ├── 06-Memory-Addressing/
 │   ├── 13_1d_array_address.c
 │   └── 14_2d_array_address_row_major.c
-└── 07-Sorting/
+├── 07-Sorting/
     ├── 15_bubble_sort.c
     ├── 16_selection_sort.c
     ├── 17_insertion_sort.c
@@ -110,6 +114,10 @@ DSA-Tears-And-Fears/
     ├── 22_merge_sort_junction.c
     ├── 23_merge_sort.c
     └── 25_quick_sort.c
+├── 08-Stack/
+│   └── 26_stack.c
+└── 09-Queue/
+    └── 27_queue.c
 ```
 
 ## ⚡ Quick start
@@ -141,12 +149,16 @@ make all
 | Modified bubble sort | O(n²) worst / O(n) best | O(1) |
 | Quick sort | O(n log n) average / O(n²) worst | O(log n) average recursion |
 | Merge sort | O(n log n) | O(n) |
+| Stack push / pop / peek | O(1) | O(n) |
+| Stack display | O(n) | O(n) |
+| Queue enqueue / dequeue | O(1) | O(n) |
+| Queue display | O(n) | O(n) |
 
 </details>
 
 ## 👾 About + Hall of Pain
 
-A cleaned-up modern-C archive of the 25 programs recorded in the DSA lab PDF, kept in the same numbered order and with the recorded lab dates.
+A cleaned-up modern-C archive of the 27 programs recorded in the DSA lab PDF, kept in the same numbered order and with the recorded lab dates.
 
 ### ☠️ Hall of Pain
 
