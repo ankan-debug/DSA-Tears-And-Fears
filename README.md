@@ -104,16 +104,16 @@ DSA-Tears-And-Fears/
 │   ├── 13_1d_array_address.c
 │   └── 14_2d_array_address_row_major.c
 ├── 07-Sorting/
-    ├── 15_bubble_sort.c
-    ├── 16_selection_sort.c
-    ├── 17_insertion_sort.c
-    ├── 18_modified_bubble_sort.c
-    ├── 19_modified_selection_sort.c
-    ├── 20_sorting_switch_case.c
-    ├── 21_quick_sort.c
-    ├── 22_merge_sort_junction.c
-    ├── 23_merge_sort.c
-    └── 25_quick_sort.c
+│   ├── 15_bubble_sort.c
+│   ├── 16_selection_sort.c
+│   ├── 17_insertion_sort.c
+│   ├── 18_modified_bubble_sort.c
+│   ├── 19_modified_selection_sort.c
+│   ├── 20_sorting_switch_case.c
+│   ├── 21_quick_sort.c
+│   ├── 22_merge_sort_junction.c
+│   ├── 23_merge_sort.c
+│   └── 25_quick_sort.c
 ├── 08-Stack/
 │   └── 26_stack.c
 └── 09-Queue/
