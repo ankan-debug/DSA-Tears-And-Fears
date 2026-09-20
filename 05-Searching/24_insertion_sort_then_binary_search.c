@@ -12,10 +12,60 @@
  * Run: ./program
  */
 #include <stdio.h>
-#define MAX_SIZE 100
-static void insertion(int a[],size_t n){for(size_t i=1;i<n;i++){int k=a[i];size_t j=i;while(j&&a[j-1]>k){a[j]=a[j-1];--j;}a[j]=k;}}
-static int binary(const int a[],size_t n,int t){size_t l=0,r=n;while(l<r){size_t m=l+(r-l)/2;if(a[m]==t)return(int)m;if(a[m]<t)l=m+1;else r=m;}return -1;}
-int main(void){int a[MAX_SIZE],t;size_t n;printf("Enter number of elements: ");if(scanf("%zu",&n)!=1||n>MAX_SIZE)return 1;printf("Enter %zu elements: ",n);for(size_t i=0;i<n;i++)if(scanf("%d",&a[i])!=1)return 1;insertion(a,n);printf("Array after insertion sort: ");for(size_t i=0;i<n;i++)printf("%d%s",a[i],i+1==n?"\n":" ");printf("Enter element to search: ");if(scanf("%d",&t)!=1)return 1;int p=binary(a,n,t);if(p>=0)printf("Element %d found at index %d\n",t,p);else printf("Element %d not found\n",t);return 0;}
+
+void insertionSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+int binarySearch(int arr[], int left, int right, int target) {
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target)
+            return mid;
+        if (arr[mid] < target)
+            left = mid + 1;
+        else
+            right = mid - 1;
+    }
+    return -1;
+}
+
+int main() {
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int target = 25;
+
+    printf("Original unsorted array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    insertionSort(arr, n);
+
+    printf("Array after insertion Sort: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    int result = binarySearch(arr, 0, n - 1, target);
+    if (result != -1) {
+        printf("Element %d found at index %d\n", target, result);
+    } else {
+        printf("Element %d not found in the array\n", target);
+    }
+
+    return 0;
+}
 /*
  * Sample run:
  * Enter number of elements: 7
