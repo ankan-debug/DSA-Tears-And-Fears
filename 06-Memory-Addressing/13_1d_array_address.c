@@ -12,7 +12,21 @@
  * Run: ./program
  */
 #include <stdio.h>
-int main(void){unsigned long long b,w;long long i,lb;printf("Enter Base Address (B): ");if(scanf("%llu",&b)!=1)return 1;printf("Enter index: ");if(scanf("%lld",&i)!=1)return 1;printf("Enter the size of data type in bytes (w): ");if(scanf("%llu",&w)!=1||w==0)return 1;printf("Enter lower bound (LB): ");if(scanf("%lld",&lb)!=1)return 1;printf("The calculated address of the element is: %llu\n",b+(unsigned long long)(i-lb)*w);return 0;}
+
+int main() {
+    int B, index, size_dt;
+    printf("Enter Base Address (B): ");
+    scanf("%d", &B);
+    printf("Enter index: ");
+    scanf("%d", &index);
+    printf("Enter the size of data type in bytes (size_dt): ");
+    scanf("%d", &size_dt);
+    
+    int address = B + (index * size_dt);
+    printf("The calculated address of the element is : %d\n", address);
+    
+    return 0;
+}
 /*
  * Sample run:
  * Enter Base Address (B): 1000
