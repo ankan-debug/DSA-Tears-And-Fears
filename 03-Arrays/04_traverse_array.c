@@ -11,33 +11,11 @@
  * Run: ./build/03-Arrays/04_traverse_array
  */
 #include <stdio.h>
-
-#define MAX_SIZE 100
-
-int main(void)
-{
-    int numbers[MAX_SIZE];
-    size_t count;
-
-    printf("Enter number of elements: ");
-    if (scanf("%zu", &count) != 1 || count > MAX_SIZE) {
-        fprintf(stderr, "Invalid array size.\n");
-        return 1;
+int main () {
+    int number [5] = {5, 10, 15, 20, 25};
+    for (int i = 0; i < 5; i++) {
+        printf ("Index %d -> %d\n", i, number [i]);
     }
-
-    printf("Enter %zu elements: ", count);
-    for (size_t index = 0U; index < count; ++index) {
-        if (scanf("%d", &numbers[index]) != 1) {
-            fprintf(stderr, "Invalid element.\n");
-            return 1;
-        }
-    }
-
-    printf("Array elements:\n");
-    for (size_t index = 0U; index < count; ++index) {
-        printf("Index %zu -> %d\n", index, numbers[index]);
-    }
-
     return 0;
 }
 
