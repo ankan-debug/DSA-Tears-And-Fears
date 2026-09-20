@@ -13,50 +13,36 @@
  */
 #include <stdio.h>
 
-int main(void)
-{
-    unsigned long long base_address;
-    unsigned long long element_size;
-    unsigned long long columns;
-    long long row;
-    long long column;
-    long long lower_row;
-    long long lower_column;
+int main() {
+    int B, W, I, J, LR, LC, N;
 
     printf("Enter the Base Address (B): ");
-    if (scanf("%llu", &base_address) != 1) {
-        fprintf(stderr, "Invalid base address.\n");
-        return 1;
-    }
-    printf("Enter the size of the data type in bytes (w): ");
-    if (scanf("%llu", &element_size) != 1 || element_size == 0ULL) {
-        fprintf(stderr, "Invalid element size.\n");
-        return 1;
-    }
-    printf("Enter the target row: ");
-    if (scanf("%lld", &row) != 1) return 1;
-    printf("Enter the target column: ");
-    if (scanf("%lld", &column) != 1) return 1;
-    printf("Enter the lower row bound (LR): ");
-    if (scanf("%lld", &lower_row) != 1) return 1;
-    printf("Enter the lower column bound (LC): ");
-    if (scanf("%lld", &lower_column) != 1) return 1;
-    printf("Enter total number of columns (N): ");
-    if (scanf("%llu", &columns) != 1 || columns == 0ULL) {
-        fprintf(stderr, "Invalid column count.\n");
-        return 1;
-    }
+    scanf("%d", &B);
 
-    unsigned long long address =
-        base_address +
-        ((unsigned long long)(row - lower_row) * columns +
-         (unsigned long long)(column - lower_column)) * element_size;
+    printf("Enter the size of the data type in bytes (W): ");
+    scanf("%d", &W);
 
-    printf("The calculated address for A[%lld][%lld] is: %llu\n",
-           row, column, address);
+    printf("Enter the target row to be found (I): ");
+    scanf("%d", &I);
+
+    printf("Enter the target column to be found (J): ");
+    scanf("%d", &J);
+
+    printf("Enter the lowest index of Row/Lower Bound (LR): ");
+    scanf("%d", &LR);
+
+    printf("Enter the lowest index of Column/Lower Bound (LC): ");
+    scanf("%d", &LC);
+
+    printf("Enter the total Number of columns (N): ");
+    scanf("%d", &N);
+
+    int address = B + W * ((I - LR) * N + (J - LC));
+
+    printf("\nThe calculated address for element A[%d][%d] is: %d\n", I, J, address);
+
     return 0;
 }
-
 /*
  * Sample run:
  * Enter the Base Address (B): 2000
