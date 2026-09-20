@@ -11,10 +11,54 @@
  * Run: ./program
  */
 #include <stdio.h>
-#include <stdlib.h>
-static void merge(int a[],int l,int m,int r){int n1=m-l+1,n2=r-m,*x=malloc((size_t)n1*sizeof*x),*y=malloc((size_t)n2*sizeof*y);if(!x||!y){free(x);free(y);exit(EXIT_FAILURE);}for(int i=0;i<n1;i++)x[i]=a[l+i];for(int j=0;j<n2;j++)y[j]=a[m+1+j];int i=0,j=0,k=l;while(i<n1&&j<n2)a[k++]=x[i]<=y[j]?x[i++]:y[j++];while(i<n1)a[k++]=x[i++];while(j<n2)a[k++]=y[j++];free(x);free(y);}
-static void ms(int a[],int l,int r){if(l>=r)return;int m=l+(r-l)/2;ms(a,l,m);ms(a,m+1,r);merge(a,l,m,r);}
-int main(void){int a[100];size_t n;printf("Enter number of elements: ");if(scanf("%zu",&n)!=1||n>100)return 1;printf("Enter %zu elements: ",n);for(size_t i=0;i<n;i++)if(scanf("%d",&a[i])!=1)return 1;if(n)ms(a,0,(int)n-1);printf("Sorted Array\n");for(size_t i=0;i<n;i++)printf("%d%s",a[i],i+1==n?"\n":" ");return 0;}
+
+void merge(int arr[], int p, int q, int r) {
+    int n1 = q - p + 1;
+    int n2 = r - q;
+    int L[n1], M[n2];
+    
+    for (int i = 0; i < n1; i++) {
+        L[i] = arr[p + i];
+    }
+    for (int j = 0; j < n2; j++) {
+        M[j] = arr[q + 1 + j];
+    }
+    
+    int i = 0, j = 0, k = p;
+    while (i < n1 && j < n2) {
+        if (L[i] <= M[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = M[j];
+            j++;
+        }
+        k++;
+    }
+    
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+    
+    while (j < n2) {
+        arr[k] = M[j];
+        j++;
+        k++;
+    }
+}
+
+int main() {
+    int arr[] = {3, 8, 9, 1, 5, 7};
+    merge(arr, 0, 2, 5);
+    
+    for (int i = 0; i < 6; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
 /*
  * Sample run:
  * Enter number of elements: 7
