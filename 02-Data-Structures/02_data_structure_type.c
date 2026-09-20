@@ -12,40 +12,27 @@
  * Run: ./build/02-Data-Structures/02_data_structure_type
  */
 #include <stdio.h>
-
-int main(void)
-{
-    int choice;
-
-    printf("1. Array\n");
-    printf("2. Linked List\n");
-    printf("3. Tree\n");
-    printf("4. Graph\n");
+int main () {
+    int n;
+    printf("1. Array\n 2. Linked List\n 3. Tree\n 4. Graph\n ");
     printf("Enter your choice: ");
-
-    if (scanf("%d", &choice) != 1) {
-        fprintf(stderr, "Invalid input.\n");
-        return 1;
+    scanf("%d", &n);
+    switch(n) {
+        case 1:
+            printf("Static -> Linear -> Non-primitive\n");
+            break;
+        case 2:
+            printf("Dynamic -> Linear -> Non-primitive\n");
+            break;
+        case 3:
+            printf("Dynamic -> Non-linear -> Non-primitive\n");
+            break;
+        case 4:
+            printf("Dynamic -> Non-linear -> Non-primitive\n");
+            break;
+        default:
+            printf("Invalid Choice\n");
     }
-
-    switch (choice) {
-    case 1:
-        printf("Array -> Static -> Linear -> Non-primitive\n");
-        break;
-    case 2:
-        printf("Linked List -> Dynamic -> Linear -> Non-primitive\n");
-        break;
-    case 3:
-        printf("Tree -> Dynamic -> Non-linear -> Non-primitive\n");
-        break;
-    case 4:
-        printf("Graph -> Dynamic -> Non-linear -> Non-primitive\n");
-        break;
-    default:
-        printf("Invalid choice\n");
-        break;
-    }
-
     return 0;
 }
 
