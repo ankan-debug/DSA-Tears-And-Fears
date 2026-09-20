@@ -12,9 +12,39 @@
  * Run: ./program
  */
 #include <stdio.h>
-#define MAX_SIZE 100
-static int search(const int a[],int l,int r,int t){if(l>r)return -1;int m=l+(r-l)/2;if(a[m]==t)return m;if(a[m]>t)return search(a,l,m-1,t);return search(a,m+1,r,t);}
-int main(void){int a[MAX_SIZE],t;size_t n;printf("Enter number of elements: ");if(scanf("%zu",&n)!=1||n>MAX_SIZE)return 1;printf("Enter %zu sorted elements: ",n);for(size_t i=0;i<n;i++)if(scanf("%d",&a[i])!=1)return 1;printf("Enter element to search: ");if(scanf("%d",&t)!=1)return 1;int p=search(a,0,(int)n-1,t);if(p>=0)printf("Element found at position: %d\n",p);else printf("Element not found\n");return 0;}
+
+int bSearch(int arr[], int left, int right, int target) {
+    if (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target) {
+            return mid;
+        }
+        if (arr[mid] > target) {
+            return bSearch(arr, left, mid - 1, target);
+        }
+        return bSearch(arr, mid + 1, right, target);
+    }
+    return -1;
+}
+
+int main() {
+    int arr[100], n, target, result;
+    printf("Enter number of element: ");
+    scanf("%d", &n);
+    printf("Enter %d sorted element: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter element to search: ");
+    scanf("%d", &target);
+    result = bSearch(arr, 0, n - 1, target);
+    if (result != -1) {
+        printf("Element found at pos: %d\n", result + 1);
+    } else {
+        printf("Element Not found\n");
+    }
+    return 0;
+}
 /*
  * Sample run:
  * Enter number of elements: 5
