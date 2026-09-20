@@ -12,8 +12,34 @@
  * Run: ./program
  */
 #include <stdio.h>
-#define MAX_SIZE 100
-int main(void){int a[MAX_SIZE],target;size_t n;printf("Enter number of elements: ");if(scanf("%zu",&n)!=1||n>MAX_SIZE)return 1;printf("Enter %zu elements: ",n);for(size_t i=0;i<n;i++)if(scanf("%d",&a[i])!=1)return 1;printf("Enter element to search: ");if(scanf("%d",&target)!=1)return 1;for(size_t i=0;i<n;i++)if(a[i]==target){printf("Element found at position: %zu\n",i);return 0;}printf("Element not found\n");return 0;}
+
+int linearSearch(int arr[], int n, int target) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int main() {
+    int arr[100], n, target, result;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Enter %d elements: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter element to search: ");
+    scanf("%d", &target);
+    result = linearSearch(arr, n, target);
+    if (result != -1) {
+        printf("Element found at position: %d\n", result + 1);
+    } else {
+        printf("Element not found.\n");
+    }
+    return 0;
+}
 /*
  * Sample run:
  * Enter number of elements: 5
