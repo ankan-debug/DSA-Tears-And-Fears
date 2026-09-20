@@ -13,52 +13,61 @@
  */
 #include <stdio.h>
 
-static void swap(int *first, int *second)
-{
-    int temp = *first;
-    *first = *second;
-    *second = temp;
+void swap(int array[], int a, int b) {
+    int temp = array[a];
+    array[a] = array[b];
+    array[b] = temp;
 }
 
-static int partition(int array[], int low, int high)
-{
+int partition(int array[], int low, int high) {
     int pivot = array[high];
-    int smaller = low - 1;
-    for (int index = low; index < high; ++index) {
-        if (array[index] <= pivot) {
-            ++smaller;
-            swap(&array[smaller], &array[index]);
+    int i = (low - 1);
+    
+    for (int j = low; j < high; j++) {
+        if (array[j] <= pivot) {
+            i++;
+            swap(array, i, j);
+            printf("Step: ");
+            for (int k = low; k <= high; k++) {
+                printf("%d ", array[k]);
+            }
+            printf("\n");
         }
     }
-    swap(&array[smaller + 1], &array[high]);
-    return smaller + 1;
+    swap(array, i + 1, high);
+    printf("Step: ");
+    for (int k = low; k <= high; k++) {
+        printf("%d ", array[k]);
+    }
+    printf("\n");
+    return (i + 1);
 }
 
-static void quick_sort(int array[], int low, int high)
-{
+void quickSort(int array[], int low, int high) {
     if (low < high) {
-        int pivot_index = partition(array, low, high);
-        quick_sort(array, low, pivot_index - 1);
-        quick_sort(array, pivot_index + 1, high);
+        int pi = partition(array, low, high);
+        quickSort(array, low, pi - 1);
+        quickSort(array, pi + 1, high);
     }
 }
 
-int main(void)
-{
-    int array[] = {38, 27, 43, 3, 9, 82, 10};
-    size_t size = sizeof(array) / sizeof(array[0]);
-
-    printf("Original array: ");
-    for (size_t index = 0U; index < size; ++index) {
-        printf("%d%s", array[index], index + 1U == size ? "\n" : " ");
+int main() {
+    int data[] = {10, 7, 8, 9, 1, 5};
+    int n = sizeof(data) / sizeof(data[0]);
+    
+    printf("Unsorted array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", data[i]);
     }
-
-    quick_sort(array, 0, (int)size - 1);
-
+    printf("\n");
+    
+    quickSort(data, 0, n - 1);
+    
     printf("Sorted array: ");
-    for (size_t index = 0U; index < size; ++index) {
-        printf("%d%s", array[index], index + 1U == size ? "\n" : " ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", data[i]);
     }
+    printf("\n");
     return 0;
 }
 
