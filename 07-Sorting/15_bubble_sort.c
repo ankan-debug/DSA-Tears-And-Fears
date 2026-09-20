@@ -12,8 +12,32 @@
  * Run: ./program
  */
 #include <stdio.h>
-#define MAX_SIZE 100
-int main(void){int a[MAX_SIZE];size_t n;printf("Enter number of elements: ");if(scanf("%zu",&n)!=1||n>MAX_SIZE)return 1;printf("Enter %zu elements: ",n);for(size_t i=0;i<n;i++)if(scanf("%d",&a[i])!=1)return 1;for(size_t pass=0;pass<n;pass++)for(size_t i=0;i+1<n-pass;i++)if(a[i]>a[i+1]){int t=a[i];a[i]=a[i+1];a[i+1]=t;}printf("Sorted Array\n");for(size_t i=0;i<n;i++)printf("%d%s",a[i],i+1==n?"\n":" ");return 0;}
+
+void bubbleSort(int array[], int size) {
+    for (int step = 0; step < size - 1; ++step) {
+        for (int i = 0; i < size - step - 1; ++i) {
+            if (array[i] > array[i + 1]) {
+                int temp = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int data[] = {6, 4, 7, 8, 1, 9, 5};
+    int size = sizeof(data) / sizeof(data[0]);
+    
+    bubbleSort(data, size);
+    
+    printf("Sorted Array\n");
+    for (int i = 0; i < size; ++i) {
+        printf("%d ", data[i]);
+    }
+    printf("\n");
+    return 0;
+}
 /*
  * Sample run:
  * Enter number of elements: 7
